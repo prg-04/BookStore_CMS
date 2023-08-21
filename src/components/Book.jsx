@@ -3,34 +3,30 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
 
+const btns = ['Comments', 'Remove', 'Edit'];
 function Book({
-  title, author, category, id,
+  title, author, category, id, numArr, index,
 }) {
   const categoryName = category.name;
-
   return (
     <li key={id} className="book">
       <div className="book__info">
-        <h4>{categoryName}</h4>
+        <h4>{categoryName || category}</h4>
         <h2>{title}</h2>
         <h6>{author}</h6>
         <div className="book__interaction">
-          <button type="button" className="book__btn">
-            Comments
-          </button>
-          <button type="button" className="book__btn">
-            Remove
-          </button>
-          <button type="button" className="book__btn">
-            Edit
-          </button>
+          {btns.map((btn) => (
+            <button key={btn} style={{ borderRight: btn !== 'Edit' ? '1px solid #000' : 'none' }} type="button" className="book__btn">
+              {btn}
+            </button>
+          ))}
         </div>
       </div>
       <div className="book__percentage">
-        <CircularProgressbar value={64} />
+        <CircularProgressbar value={numArr[index]} />
         <div className="percent">
           <h5>
-            {64}
+            {numArr[index]}
             %
           </h5>
           <p>Completed</p>
@@ -53,6 +49,8 @@ Book.propTypes = {
     description: PropTypes.string.isRequired,
   }).isRequired,
   id: PropTypes.string.isRequired,
+  numArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default Book;
