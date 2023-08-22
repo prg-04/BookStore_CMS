@@ -16,7 +16,7 @@ function Book({
         <h6>{author}</h6>
         <div className="book__interaction">
           {btns.map((btn) => (
-            <button key={btn} style={{ borderRight: btn !== 'Edit' ? '1px solid #000' : 'none' }} type="button" className="book__btn">
+            <button key={btn} style={{ borderRight: btn !== 'Edit' ? '1px solid #ccc' : 'none' }} type="button" className="book__btn">
               {btn}
             </button>
           ))}
