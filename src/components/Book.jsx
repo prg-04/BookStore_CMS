@@ -2,6 +2,7 @@ import React from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
 const btns = ['Comments', 'Remove', 'Edit'];
 function Book({
@@ -16,9 +17,22 @@ function Book({
         <h6>{author}</h6>
         <div className="book__interaction">
           {btns.map((btn) => (
-            <button key={btn} style={{ borderRight: btn !== 'Edit' ? '1px solid #ccc' : 'none' }} type="button" className="book__btn">
-              {btn}
-            </button>
+            <Button
+              key={btn}
+              bg="#fff"
+              font="0.875rem"
+              clr="#4386ff"
+              borderRight={`${btn}` !== 'Edit' ? '1px solid #aaa' : 'none'}
+              style={{
+                borderRight: btn !== 'Edit' ? '1px solid #aaa' : 'none',
+              }}
+              borderTRradius="0px"
+              borderBRradius="0px"
+              className="book_btn"
+              type="button"
+              content={btn}
+              padding="0.501rem 1.188rem 0.586rem 1.375rem"
+            />
           ))}
         </div>
       </div>
@@ -34,7 +48,11 @@ function Book({
       </div>
       <div className="book__progress">
         <h4>CURRENT CHAPTER</h4>
-        <h5>CHAPTER 15</h5>
+        <h5>
+          CHAPTER
+          {' '}
+          { (numArr[index] / 2).toFixed()}
+        </h5>
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </li>

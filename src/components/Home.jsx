@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
 import genRandNum from '../utils/randomNum';
-import Button from './Button';
+// import Button from './Button';
 
 function Home() {
   const initialBooks = useSelector((state) => state.book);
@@ -45,7 +45,13 @@ function Home() {
         ))}
       </ul>
       <Form setBooks={setBooks} />
-      <Button />
+
+      {/* <Button
+        type="button"
+        content="test run button"
+        padding="0.5rem 1rem"
+        transform="uppercase"
+      /> */}
     </div>
   );
 }

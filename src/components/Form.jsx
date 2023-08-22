@@ -3,9 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import SelectCategory from './SelectCategory';
 import { categories } from '../constants/constants';
+import Button from './Button';
 
 function Form({ setBooks }) {
   const [selected, setSelected] = useState(categories[0]);
+
   const formRef = useRef(null);
 
   const handleSubmit = (e, selectedVal) => {
@@ -36,7 +38,13 @@ function Form({ setBooks }) {
         <input className="form__input" type="text" placeholder="Book title" />
         <input className="form__input" type="text" placeholder="Author" />
         <SelectCategory selected={selected} setSelected={setSelected} />
-        <button type="submit">Add book</button>
+        {/* <button type="submit">Add book</button> */}
+        <Button
+          type="submit"
+          content="Add Book"
+          weight="bold"
+          padding="0.501rem 1.188rem 0.586rem 1.375rem"
+        />
       </form>
     </div>
   );
