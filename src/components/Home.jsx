@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
+import genRandNum from '../utils/randomNum';
 
 function Home() {
-  const [books, setBooks] = useState([]);
+  const initialBooks = useSelector((state) => state.book);
+  const [books, setBooks] = useState(initialBooks);
+
+  const numArr = genRandNum(books);
 
   useEffect(() => {
     const storedBooks = localStorage.getItem('books');
@@ -17,27 +22,29 @@ function Home() {
   }, [books]);
 
   return (
-    <>
+    <div style={{ padding: '0 6.25rem' }}>
       <ul
         style={{
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
-          marginTop: '5rem',
+          marginTop: '6rem',
         }}
       >
-        {books.map((book) => (
+        {books.map((book, index) => (
           <Book
             key={book.id}
             id={book.id}
             title={book.title}
             author={book.author}
-            category={book.category} // Add category prop here
+            category={book.category}
+            numArr={numArr}
+            index={index}
           />
         ))}
       </ul>
       <Form setBooks={setBooks} />
-    </>
+    </div>
   );
 }
 
