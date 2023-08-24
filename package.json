@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
+    "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "postcss": "^8.4.28",
     "stylelint": "^13.13.1",

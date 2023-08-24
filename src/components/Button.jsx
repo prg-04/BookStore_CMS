@@ -35,16 +35,29 @@ function Button({
 }
 
 Button.propTypes = {
-  padding: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  transform: PropTypes.string.isRequired,
-  bg: PropTypes.string.isRequired,
-  clr: PropTypes.string.isRequired,
-  font: PropTypes.string.isRequired,
-  weight: PropTypes.string.isRequired,
-  borderRight: PropTypes.string.isRequired,
-  borderTRradius: PropTypes.string.isRequired,
-  borderBRradius: PropTypes.string.isRequired,
+  padding: PropTypes.string,
+  content: PropTypes.string,
+  transform: PropTypes.string,
+  bg: PropTypes.string,
+  clr: PropTypes.string,
+  font: PropTypes.string,
+  weight: PropTypes.string,
+  borderRight: PropTypes.string,
+  borderTRradius: PropTypes.string,
+  borderBRradius: PropTypes.string,
+};
+
+Button.defaultProps = {
+  padding: '',
+  content: '',
+  transform: '',
+  bg: '',
+  clr: '',
+  font: '',
+  weight: '',
+  borderRight: '',
+  borderTRradius: '',
+  borderBRradius: '',
 };
 
 export default Button;

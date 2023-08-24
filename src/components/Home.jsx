@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
 import genRandNum from '../utils/randomNum';
-// import Button from './Button';
 
 function Home() {
   const initialBooks = useSelector((state) => state.book);
@@ -21,6 +21,14 @@ function Home() {
   useEffect(() => {
     localStorage.setItem('books', JSON.stringify(books));
   }, [books]);
+
+  const handleAddBook = (newBook) => {
+    setBooks((prevBooks) => [...prevBooks, newBook]);
+  };
+
+  const handleRemoveBook = (id) => {
+    setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
+  };
 
   return (
     <div style={{ padding: '0 6.25rem' }}>
@@ -41,19 +49,17 @@ function Home() {
             category={book.category}
             numArr={numArr}
             index={index}
+            setBooks={handleRemoveBook}
           />
         ))}
       </ul>
-      <Form setBooks={setBooks} />
-
-      {/* <Button
-        type="button"
-        content="test run button"
-        padding="0.5rem 1rem"
-        transform="uppercase"
-      /> */}
+      <Form setBooks={setBooks} onAddBook={handleAddBook} />
     </div>
   );
 }
+
+Form.propTypes = {
+  setBooks: PropTypes.func.isRequired,
+};
 
 export default Home;
