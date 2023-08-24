@@ -8,7 +8,7 @@ function Categories() {
 
   useEffect(() => {
     dispatch(getCategoryStatus('Under Construction'));
-  }, []);
+  });
 
   return (
     <p style={{ marginTop: '6rem', fontSize: '1.5rem', marginright: '0.5rem' }}>

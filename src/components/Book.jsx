@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 
 const btns = ['Comments', 'Remove', 'Edit'];
 function Book({
-  title, author, category, id, numArr, index,
+  title, author, category, id, numArr, index, setBooks,
 }) {
   const categoryName = category.name;
+
   return (
     <li key={id} className="book">
       <div className="book__info">
@@ -16,7 +17,15 @@ function Book({
         <h6>{author}</h6>
         <div className="book__interaction">
           {btns.map((btn) => (
-            <button key={btn} style={{ borderRight: btn !== 'Edit' ? '1px solid #ccc' : 'none' }} type="button" className="book__btn">
+            <button
+              key={btn}
+              onClick={() => setBooks(id)}
+              type="button"
+              className="book__btn"
+              style={{
+                borderRight: btn !== 'Edit' ? '1px solid #aaa' : 'none',
+              }}
+            >
               {btn}
             </button>
           ))}
@@ -34,7 +43,10 @@ function Book({
       </div>
       <div className="book__progress">
         <h4>CURRENT CHAPTER</h4>
-        <h5>CHAPTER 15</h5>
+        <h5>
+          CHAPTER
+          {(numArr[index] / 2).toFixed()}
+        </h5>
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </li>
@@ -42,15 +54,23 @@ function Book({
 }
 
 Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  category: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
-  id: PropTypes.string.isRequired,
-  numArr: PropTypes.arrayOf(PropTypes.number).isRequired,
-  index: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  category: PropTypes.string,
+  id: PropTypes.string,
+  numArr: PropTypes.arrayOf(PropTypes.string),
+  index: PropTypes.number,
+  setBooks: PropTypes.func,
+};
+
+Book.defaultProps = {
+  title: '',
+  author: '',
+  category: '',
+  id: '',
+  numArr: '',
+  index: '',
+  setBooks: () => {},
 };
 
 export default Book;
