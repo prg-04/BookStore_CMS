@@ -20,6 +20,7 @@ const books = [
 ];
 
 export const categories = [
+  'Category',
   'Fiction',
   'Non-fiction',
   'Mystery',

@@ -26,7 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eee;
+  background-color: #f5f6fa;
 }
 
 code {
@@ -50,6 +50,7 @@ code {
   z-index: 10;
   width: 100%;
   background-color: #fff;
+  height: 5.938rem;
 }
 
 .header__logo {
@@ -67,13 +68,14 @@ code {
 
 .header__link {
   font-family: Montserrat, sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.813rem;
   letter-spacing: 1.9px;
   color: #121212;
+  text-transform: uppercase;
 }
 
 .header__avatar-cont {
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e8e8e8;
   border-radius: 50%;
   padding: 0.8rem;
   margin-left: auto;
@@ -106,10 +108,10 @@ code {
 .book__info h4 {
   opacity: 0.5;
   font-family: Montserrat, sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: bold;
   color: #121212;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .book__info h2 {
@@ -148,7 +150,7 @@ code {
 }
 
 .book__percentage {
-  width: 200px;
+  width: 11rem;
   place-items: center;
   display: flex;
   align-items: center;
@@ -174,15 +176,20 @@ code {
 .book__progress {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  border-left: 1px solid #eee;
+  height: 60%;
+  padding-left: 1rem;
 }
 
 .book__progress h4 {
   opacity: 0.5;
   font-family: RobotoSlab, serif;
-  font-size: 1rem;
+  font-size: 0.813rem;
   font-weight: 300;
   color: #121212;
+  margin-top: 2.603rem;
+  height: 1.125rem;
 }
 
 .book__progress h5 {
@@ -209,7 +216,7 @@ code {
 }
 
 .book__progress button {
-  margin-top: 2rem;
+  margin-top: 0.3rem;
   font-family: RobotoSlab, serif;
   font-size: 1rem;
   font-weight: 300;
@@ -239,6 +246,13 @@ code {
   border: 1px solid #e2e2e2;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form__cont > h3 {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #888;
 }
 
 .form {
