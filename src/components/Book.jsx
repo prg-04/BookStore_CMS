@@ -45,6 +45,7 @@ function Book({
         <h4>CURRENT CHAPTER</h4>
         <h5>
           CHAPTER
+          {' '}
           {(numArr[index] / 2).toFixed()}
         </h5>
         <button type="button">UPDATE PROGRESS</button>
